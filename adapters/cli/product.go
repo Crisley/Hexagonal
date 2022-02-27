@@ -16,7 +16,7 @@ func Run(service application.ProductServiceInterface, action string, productId s
 			return result, err
 		}
 
-		result = fmt.Sprintf("Product ID %s with the name %s has been created with price %f and status %s",
+		result = fmt.Sprintf("Product ID %s with the name %s has been created with price %.2f and status %s",
 			product.GetId(), product.GetName(), product.GetPrice(), product.GetStatus())
 	case "enable":
 		product, err := service.Get(productId)
@@ -47,7 +47,7 @@ func Run(service application.ProductServiceInterface, action string, productId s
 		if err != nil {
 			return result, err
 		}
-		result = fmt.Sprintf("Product ID: %s\nName: %s\nPrice: %f\nStatus: %s",
+		result = fmt.Sprintf("Product ID: %s\nName: %s\nPrice: %.2f\nStatus: %s",
 			res.GetId(), res.GetName(), res.GetPrice(), res.GetStatus())
 	}
 	return result, nil
